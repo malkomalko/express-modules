@@ -1,0 +1,9 @@
+#!/bin/sh
+
+for i in $(find ./components -type d -maxdepth 1); do
+  json="${i}/package.json"
+  if [ -f "${json}" ]; then
+    echo "installing ${i}..."
+    npm install "${i}"
+  fi
+done
